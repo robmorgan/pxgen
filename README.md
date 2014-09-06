@@ -35,4 +35,4 @@ which will generate a binary at `$GOPATH/bin/pxgen`
 
 ### Testing
 
-To run tests for docopt-go, use `make test`.
+To run tests for pxgen, use `make test`.
