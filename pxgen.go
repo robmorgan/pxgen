@@ -2,13 +2,37 @@ package main
 
 import (
 	"crypto/rand"
+	"flag"
+	"fmt"
 	"io"
+	"os"
+	"strconv"
 )
 
 var StdChars = []byte("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+,.?/:;{}[]`~")
 
+func usage() {
+	fmt.Fprintf(os.Stderr, "usage: pxgen [length]\n")
+	flag.PrintDefaults()
+	os.Exit(2)
+}
+
 func main() {
-	println(rand_char(20, StdChars))
+	var i int = 20
+	flag.Usage = usage
+	flag.Parse()
+	s := flag.Arg(0)
+	// string to int
+	if len(s) > 0 {
+		var err error
+		i, err = strconv.Atoi(s)
+		if err != nil {
+			// handle error
+			fmt.Println(err)
+			os.Exit(2)
+		}
+	}
+	fmt.Println(rand_char(i, StdChars))
 }
 
 func rand_char(length int, chars []byte) string {
