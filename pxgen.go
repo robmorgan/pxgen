@@ -9,6 +9,7 @@ import (
 	"strconv"
 )
 
+// Standard characters to generate passwords with
 var StdChars = []byte("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+,.?/:;{}[]`~")
 
 func usage() {
@@ -18,7 +19,7 @@ func usage() {
 }
 
 func main() {
-	var i int = 20
+	var i = 20
 	flag.Usage = usage
 	flag.Parse()
 	s := flag.Arg(0)
@@ -32,27 +33,27 @@ func main() {
 			os.Exit(2)
 		}
 	}
-	fmt.Println(rand_char(i, StdChars))
+	fmt.Println(randChar(i, StdChars))
 }
 
-func rand_char(length int, chars []byte) string {
-	new_pword := make([]byte, length)
-	random_data := make([]byte, length+(length/4)) // storage for random bytes.
+func randChar(length int, chars []byte) string {
+	newPword := make([]byte, length)
+	randomData := make([]byte, length+(length/4)) // storage for random bytes.
 	clen := byte(len(chars))
 	maxrb := byte(256 - (256 % len(chars)))
 	i := 0
 	for {
-		if _, err := io.ReadFull(rand.Reader, random_data); err != nil {
+		if _, err := io.ReadFull(rand.Reader, randomData); err != nil {
 			return ""
 		}
-		for _, c := range random_data {
+		for _, c := range randomData {
 			if c >= maxrb {
 				continue
 			}
-			new_pword[i] = chars[c%clen]
+			newPword[i] = chars[c%clen]
 			i++
 			if i == length {
-				return string(new_pword)
+				return string(newPword)
 			}
 		}
 	}
