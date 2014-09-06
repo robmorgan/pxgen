@@ -21,7 +21,7 @@ T8%R90[{F:
 
 ### Getting pxgen
 
-You can get pxgen using the standard go workflow - ensure `GOPATH` is set appropriately, and then:
+You can get pxgen using the standard go workflow - ensure `GOPATH` is set appropriately then:
 
 ```sh
 go get github.com/robmorgan/pxgen
