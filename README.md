@@ -14,13 +14,17 @@ Generates 20 character passwords by default.
 
 ```bash
 pxgen --help
-usage: pxgen [length]
+usage: pxgen [length] [count]
 
 $ pxgen
 -ce5Ef3@}4,AgIo,p=U
 
 $ pxgen 10
 T8%R90[{F:
+
+$ pxgen 30 2
+E!MhL&bI)ahW#n+/pebv#GuRbT5fOX
+~*}i{_=o+Q`/0jPoDQsrxKV4=AkFI?
 ```
 
 ### Getting pxgen

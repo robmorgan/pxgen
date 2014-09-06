@@ -13,27 +13,41 @@ import (
 var StdChars = []byte("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+,.?/:;{}[]`~")
 
 func usage() {
-	fmt.Fprintf(os.Stderr, "usage: pxgen [length]\n")
+	fmt.Fprintf(os.Stderr, "usage: pxgen [length] [count]\n")
 	flag.PrintDefaults()
 	os.Exit(2)
 }
 
 func main() {
-	var i = 20
+	var length = 20
+	var count = 1
 	flag.Usage = usage
 	flag.Parse()
 	s := flag.Arg(0)
-	// string to int
 	if len(s) > 0 {
+		// string to int
 		var err error
-		i, err = strconv.Atoi(s)
+		length, err = strconv.Atoi(s)
 		if err != nil {
 			// handle error
 			fmt.Println(err)
 			os.Exit(2)
 		}
 	}
-	fmt.Println(randChar(i, StdChars))
+	i := flag.Arg(1)
+	if len(i) > 0 {
+		// string to int
+		var err error
+		count, err = strconv.Atoi(i)
+		if err != nil {
+			// handle error
+			fmt.Println(err)
+			os.Exit(2)
+		}
+	}
+	for i := 0; i < count; i++ {
+		fmt.Println(randChar(length, StdChars))
+	}
 }
 
 func randChar(length int, chars []byte) string {
