@@ -32,3 +32,7 @@ go get github.com/robmorgan/pxgen
 ```
 
 which will generate a binary at `$GOPATH/bin/pxgen`
+
+### Testing
+
+To run tests for docopt-go, use `make test`.
