@@ -4,7 +4,7 @@
 [![Coverage Status](https://coveralls.io/repos/robmorgan/pxgen/badge.png?branch=master)](https://coveralls.io/r/robmorgan/pxgen?branch=master)
 [![GoDoc](https://godoc.org/github.com/robmorgan/pxgen?status.png)](https://godoc.org/github.com/robmorgan/pxgen)
 
-A simple, strong password generator based on: [password-generator-go](https://github.com/cmiceli/password-generator-go) and
+A simple, secure password generator based on: [password-generator-go](https://github.com/cmiceli/password-generator-go) and
 [uniuri](https://github.com/dchest/uniuri).
 
 Generates 20 character passwords by default.
