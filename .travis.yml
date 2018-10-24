@@ -5,15 +5,13 @@
 language: go
 
 go:
-    - 1.2.2
-    - 1.3
+    - 1.11
     - tip
 
 matrix:
     fast_finish: true
 
 before_install:
-    - go get code.google.com/p/go.tools/cmd/vet
     - go get -v github.com/golang/lint/golint
     - go get -v github.com/stretchr/testify/assert
     - go get -v code.google.com/p/go.tools/cmd/cover
